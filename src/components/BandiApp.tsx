@@ -5,6 +5,7 @@ import {
   ScrollTitle,
   ScrollDescription,
 } from './ScrollAnimations';
+import BandiLogo from './BandiLogo';
 
 const BandiApp: React.FC = () => {
   const { scrollProgress, visibleSections } =
@@ -21,7 +22,9 @@ const BandiApp: React.FC = () => {
       {/* 네비게이션 */}
       <div className="nav px-8 py-4 fixed top-0 left-0 right-0 z-30 bg-white">
         <div className="flex justify-between items-center">
-          <div className="nav__symbol font-bold text-xl">bandi</div>
+          <div className="nav__symbol">
+            <BandiLogo />
+          </div>
           <div className="nav__items flex gap-8">
             <div className="nav__item cursor-pointer hover:opacity-70">
               Menu 1
@@ -89,7 +92,7 @@ const BandiApp: React.FC = () => {
 
       {/* 섹션 3 */}
       <div className="section-3 min-h-screen flex items-center px-8">
-        <div className="main max-w-4xl mx-auto text-center">
+        <div className="main w-full max-w-[100%] mx-auto text-center">
           <ScrollTitle
             sectionNumber="3"
             visibleSections={visibleSections}
@@ -107,6 +110,56 @@ const BandiApp: React.FC = () => {
           >
             여러 연구결과에 따르면 그렇다 해요.
           </ScrollDescription>
+          <div className="postcards grid grid-cols-3 gap-4 mt-12">
+            <ScrollElement
+              sectionNumber="3"
+              visibleSections={visibleSections}
+              delay={0}
+              className="w-full"
+            >
+              <div className="postcard p-8 bg-gray-50 rounded-lg shadow-sm w-full">
+                논점에 불리십시오 후다 전복시킨다 왕성하라 이 우리다 보다. 가공은
+                방한한다 또, 찻잔께서 4명 수 과거는 방문한 말한 쓰이어. 가는 자주
+                부침이 젊어 확신한다. 비중에 만약으로, 한 얘기하지만 시킨다. 그
+                그럴 같다 지적되어요 쪽 같다. 있도록 여자는 방위는 문예의 어른을,
+                이 모른 있은가. 말에서 무엇이 점은 요구를 하는 돌아감, 바람
+                방치하도록 안정시킵니다. 아니다 이 개체의 보다 정돈성이 정말,
+                눈치와 종살이의 그러나 맡기어 집어넣으네.
+              </div>
+            </ScrollElement>
+            <ScrollElement
+              sectionNumber="3"
+              visibleSections={visibleSections}
+              delay={200}
+              className="w-full"
+            >
+              <div className="postcard p-8 bg-gray-50 rounded-lg shadow-sm w-full">
+                논점에 불리십시오 후다 전복시킨다 왕성하라 이 우리다 보다. 가공은
+                방한한다 또, 찻잔께서 4명 수 과거는 방문한 말한 쓰이어. 가는 자주
+                부침이 젊어 확신한다. 비중에 만약으로, 한 얘기하지만 시킨다. 그
+                그럴 같다 지적되어요 쪽 같다. 있도록 여자는 방위는 문예의 어른을,
+                이 모른 있은가. 말에서 무엇이 점은 요구를 하는 돌아감, 바람
+                방치하도록 안정시킵니다. 아니다 이 개체의 보다 정돈성이 정말,
+                눈치와 종살이의 그러나 맡기어 집어넣으네.
+              </div>
+            </ScrollElement>
+            <ScrollElement
+              sectionNumber="3"
+              visibleSections={visibleSections}
+              delay={400}
+              className="w-full"
+            >
+              <div className="postcard p-8 bg-gray-50 rounded-lg shadow-sm w-full">
+                논점에 불리십시오 후다 전복시킨다 왕성하라 이 우리다 보다. 가공은
+                방한한다 또, 찻잔께서 4명 수 과거는 방문한 말한 쓰이어. 가는 자주
+                부침이 젊어 확신한다. 비중에 만약으로, 한 얘기하지만 시킨다. 그
+                그럴 같다 지적되어요 쪽 같다. 있도록 여자는 방위는 문예의 어른을,
+                이 모른 있은가. 말에서 무엇이 점은 요구를 하는 돌아감, 바람
+                방치하도록 안정시킵니다. 아니다 이 개체의 보다 정돈성이 정말,
+                눈치와 종살이의 그러나 맡기어 집어넣으네.
+              </div>
+            </ScrollElement>
+          </div>
         </div>
       </div>
 
