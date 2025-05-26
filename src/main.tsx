@@ -1,15 +1,10 @@
-import { ChakraProvider, CSSReset } from '@chakra-ui/react';
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
+import BandiApp from './components/BandiApp';
+import './style.scss';
 
-import App from '@/App.tsx';
-import { theme } from '@/theme.ts';
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <ChakraProvider theme={theme}>
-      <CSSReset />
-      <App />
-    </ChakraProvider>
-  </React.StrictMode>,
-);
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  const root = createRoot(rootElement);
+  root.render(<BandiApp />);
+}
