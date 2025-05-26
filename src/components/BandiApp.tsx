@@ -8,13 +8,7 @@ import {
 import BandiLogo from './BandiLogo';
 
 const BandiApp: React.FC = () => {
-  // 🎯 훅에 명시적으로 옵션 전달
-  const { scrollProgress, visibleSections, horizontalScrollPosition } =
-    useScrollAnimation({
-      sections: ['4', '5', '6'],
-      startSection: '4', 
-      endSection: '6'
-    });
+  const { scrollProgress, visibleSections, horizontalScrollPosition } = useScrollAnimation();
 
   // 디버깅용 - 현재 상태 확인
   console.log('BandiApp 렌더링:', {

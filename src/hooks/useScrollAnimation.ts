@@ -6,17 +6,7 @@ interface ScrollAnimationReturn {
   horizontalScrollPosition: number;
 }
 
-interface UseScrollAnimationProps {
-  sections?: string[];
-  startSection?: string;
-  endSection?: string;
-}
-
-export const useScrollAnimation = ({
-  sections = ['4', '5', '6'],
-  startSection = '4',
-  endSection = '6'
-}: UseScrollAnimationProps = {}): ScrollAnimationReturn => {
+export const useScrollAnimation = (): ScrollAnimationReturn => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set(['1']));
   const [horizontalScrollPosition, setHorizontalScrollPosition] = useState(0);
