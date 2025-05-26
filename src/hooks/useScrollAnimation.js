@@ -145,4 +145,4 @@ export const useScrollAnimation = ({
     visibleSections,
     horizontalScrollPosition
   };
-};
+}; 

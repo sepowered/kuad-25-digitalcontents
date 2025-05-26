@@ -8,8 +8,20 @@ import {
 import BandiLogo from './BandiLogo';
 
 const BandiApp: React.FC = () => {
-  const { scrollProgress, visibleSections } =
-    useScrollAnimation();
+  // 🎯 훅에 명시적으로 옵션 전달
+  const { scrollProgress, visibleSections, horizontalScrollPosition } =
+    useScrollAnimation({
+      sections: ['4', '5', '6'],
+      startSection: '4', 
+      endSection: '6'
+    });
+
+  // 디버깅용 - 현재 상태 확인
+  console.log('BandiApp 렌더링:', {
+    scrollProgress,
+    visibleSections: Array.from(visibleSections),
+    horizontalScrollPosition
+  });
 
   return (
     <div className="font-sans">
@@ -163,25 +175,137 @@ const BandiApp: React.FC = () => {
         </div>
       </div>
 
-      {/* 섹션 4 */}
-      <div className="section-4 min-h-screen flex items-center px-8">
+      {/* 가로 스크롤 섹션 4-6 */}
+      <div className="horizontal-sections-wrapper relative h-[400vh]">
+        <div 
+          className="horizontal-scroll-container sticky top-0 flex h-screen overflow-hidden"
+          style={{ 
+            transform: `translateX(${horizontalScrollPosition}px)`,
+            // 🔍 디버깅용 배경색
+            background: 'rgba(255,0,0,0.1)'
+          }}
+        >
+          {/* 섹션 4 */}
+          <div className="section-4 min-h-screen min-w-full flex-shrink-0 flex items-center px-8 bg-blue-200">
+            <div className="main max-w-4xl mx-auto text-center">
+              <ScrollTitle
+                sectionNumber="4"
+                visibleSections={visibleSections}
+                delay={0}
+              >
+                지금, 글을 쓴다면 1일째!
+              </ScrollTitle>
+              <ScrollDescription
+                sectionNumber="4"
+                visibleSections={visibleSections}
+                delay={200}
+              >
+                습관을 가지는 방법은 어렵지 않아요.
+                <br />
+                오늘부터 쓰면 이루어질거에요.
+              </ScrollDescription>
+            </div>
+          </div>
+
+          {/* 섹션 5 */}
+          <div className="section-5 min-h-screen min-w-full flex-shrink-0 flex items-center px-8 bg-green-200">
+            <div className="main max-w-4xl mx-auto text-center">
+              <ScrollTitle
+                sectionNumber="5"
+                visibleSections={visibleSections}
+                delay={0}
+              >
+                글쓰기는 생각의 정리예요
+              </ScrollTitle>
+              <ScrollDescription
+                sectionNumber="5"
+                visibleSections={visibleSections}
+                delay={200}
+              >
+                복잡한 생각들을 글로 정리하면
+                <br />
+                더 명확하게 이해할 수 있게 됩니다.
+              </ScrollDescription>
+            </div>
+          </div>
+
+          {/* 섹션 6 */}
+          <div className="section-6 min-h-screen min-w-full flex-shrink-0 flex items-center px-8 bg-yellow-200">
+            <div className="main max-w-4xl mx-auto text-center">
+              <ScrollTitle
+                sectionNumber="6"
+                visibleSections={visibleSections}
+                delay={0}
+              >
+                함께 시작해보아요
+              </ScrollTitle>
+              <ScrollDescription
+                sectionNumber="6"
+                visibleSections={visibleSections}
+                delay={200}
+              >
+                bandi와 함께 글쓰기 여정을 
+                <br />
+                지금 바로 시작해보세요.
+              </ScrollDescription>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 섹션 7 (다시 세로 스크롤) */}
+      <div className="section-7 min-h-screen flex items-center px-8">
         <div className="main max-w-4xl mx-auto text-center">
           <ScrollTitle
-            sectionNumber="4"
+            sectionNumber="7"
             visibleSections={visibleSections}
             delay={0}
           >
-            지금, 글을 쓴다면 1일째!
+            당신의 이야기를 들려주세요
           </ScrollTitle>
           <ScrollDescription
-            sectionNumber="4"
+            sectionNumber="7"
             visibleSections={visibleSections}
             delay={200}
           >
-            습관을 가지는 방법은 어렵지 않아요.
+            모든 사람에게는 들려줄 가치가 있는 이야기가 있어요.
             <br />
-            오늘부터 쓰면 이루어질거에요.
+            bandi와 함께 그 이야기를 써내려가 보세요.
           </ScrollDescription>
+        </div>
+      </div>
+
+      {/* 추가 섹션 8 (Call to Action) */}
+      <div className="section-8 min-h-screen flex items-center px-8 bg-gray-50">
+        <div className="main max-w-4xl mx-auto text-center">
+          <ScrollTitle
+            sectionNumber="8"
+            visibleSections={visibleSections}
+            delay={0}
+          >
+            지금 시작하세요
+          </ScrollTitle>
+          <ScrollDescription
+            sectionNumber="8"
+            visibleSections={visibleSections}
+            delay={200}
+          >
+            글쓰기 여정의 첫 걸음을 내딛어보세요.
+          </ScrollDescription>
+          <ScrollElement
+            sectionNumber="8"
+            visibleSections={visibleSections}
+            delay={400}
+          >
+            <div className="mt-8 space-y-4">
+              <button className="bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition-colors">
+                지금 시작하기
+              </button>
+              <p className="text-sm text-gray-600">
+                무료로 시작해보세요. 언제든 취소할 수 있어요.
+              </p>
+            </div>
+          </ScrollElement>
         </div>
       </div>
     </div>
