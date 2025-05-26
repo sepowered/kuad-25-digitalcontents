@@ -7,7 +7,7 @@ import {
 } from './ScrollAnimations';
 
 const BandiApp: React.FC = () => {
-  const { scrollProgress, visibleSections, scrollToSection } =
+  const { scrollProgress, visibleSections } =
     useScrollAnimation();
 
   return (
