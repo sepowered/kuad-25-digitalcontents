@@ -164,77 +164,118 @@ const BandiApp: React.FC = () => {
       </div>
 
       {/* 가로 스크롤 섹션 4-6 */}
-      <div className="horizontal-sections-wrapper relative h-[400vh]">
-        <div
-          className="horizontal-scroll-container sticky top-0 flex h-screen overflow-hidden"
-          style={{
+      <div className="horizontal-sections-wrapper relative h-[300vh] pl-[12vw]">
+        <div 
+          className="sticky top-0 min-h-screen flex items-center justify-center px-8"
+          style={{ 
             transform: `translateX(${horizontalScrollPosition}px)`,
-            width: '300vw',
+            width: '100%'
           }}
         >
-          {/* 섹션 4 */}
-          <div className="section-4 min-h-screen w-screen flex-shrink-0 flex items-center px-8">
-            <div className="main max-w-4xl mx-auto text-center">
-              <ScrollTitle
-                sectionNumber="4"
-                visibleSections={visibleSections}
-                delay={0}
-              >
-                지금, 글을 쓴다면 1일째!
-              </ScrollTitle>
-              <ScrollDescription
-                sectionNumber="4"
-                visibleSections={visibleSections}
-                delay={200}
-              >
-                습관을 가지는 방법은 어렵지 않아요.
-                <br />
-                오늘부터 쓰면 이루어질거에요.
-              </ScrollDescription>
-            </div>
-          </div>
+          <div className="flex gap-2">
+            {/* 첫 번째 카드 */}
+            <ScrollElement
+              sectionNumber="4"
+              visibleSections={visibleSections}
+              delay={300}
+              className="w-full max-w-lg flex-shrink-0 transition-all duration-500"
+            >
+              <div className="flex flex-col items-center">
+                <div className="postcard p-8 bg-gray-50 rounded-lg shadow-sm mb-8 max-w-md">
+                  논점에 불리십시오 후다 전복시킨다 왕성하라 이 우리다 보다. 가공은
+                  방한한다 또, 찻잔께서 4명 수 과거는 방문한 말한 쓰이어. 가는 자주
+                  부침이 젊어 확신한다.
+                </div>
+                <div className="text-center max-w-sm">
+                  <ScrollTitle
+                    sectionNumber="4"
+                    visibleSections={visibleSections}
+                    delay={400}
+                  >
+                    지금, 글을 쓴다면 1일째!
+                  </ScrollTitle>
+                  <ScrollDescription
+                    sectionNumber="4"
+                    visibleSections={visibleSections}
+                    delay={500}
+                  >
+                    습관을 가지는 방법은 어렵지 않아요.
+                    <br />
+                    오늘부터 쓰면 이루어질거에요.
+                  </ScrollDescription>
+                </div>
+              </div>
+            </ScrollElement>
 
-          {/* 섹션 5 */}
-          <div className="section-5 min-h-screen w-screen flex-shrink-0 flex items-center px-8">
-            <div className="main max-w-4xl mx-auto text-center">
-              <ScrollTitle
-                sectionNumber="5"
-                visibleSections={visibleSections}
-                delay={0}
-              >
-                글쓰기는 생각의 정리예요
-              </ScrollTitle>
-              <ScrollDescription
-                sectionNumber="5"
-                visibleSections={visibleSections}
-                delay={200}
-              >
-                복잡한 생각들을 글로 정리하면
-                <br />더 명확하게 이해할 수 있게 됩니다.
-              </ScrollDescription>
-            </div>
-          </div>
+            {/* 두 번째 카드 */}
+            <ScrollElement
+              sectionNumber="5"
+              visibleSections={visibleSections}
+              delay={0}
+              className="w-full max-w-lg flex-shrink-0"
+              style={{
+                opacity: visibleSections.has("5") ? 1 : 0.5,
+                transition: 'all 700ms ease-out'
+              }}
+            >
+              <div className="flex flex-col items-center">
+                <div className="postcard p-8 bg-gray-50 rounded-lg shadow-sm mb-8 max-w-md">
+                  논점에 불리십시오 후다 전복시킨다 왕성하라 이 우리다 보다. 가공은
+                  방한한다 또, 찻잔께서 4명 수 과거는 방문한 말한 쓰이어. 가는 자주
+                  부침이 젊어 확신한다.
+                </div>
+                <div className="text-center max-w-sm">
+                  <ScrollTitle
+                    sectionNumber="5"
+                    visibleSections={visibleSections}
+                    delay={0}
+                  >
+                    글쓰기는 생각의 정리예요
+                  </ScrollTitle>
+                  <ScrollDescription
+                    sectionNumber="5"
+                    visibleSections={visibleSections}
+                    delay={0}
+                  >
+                    복잡한 생각들을 글로 정리하면
+                    <br />더 명확하게 이해할 수 있게 됩니다.
+                  </ScrollDescription>
+                </div>
+              </div>
+            </ScrollElement>
 
-          {/* 섹션 6 */}
-          <div className="section-6 min-h-screen w-screen flex-shrink-0 flex items-center px-8">
-            <div className="main max-w-4xl mx-auto text-center">
-              <ScrollTitle
-                sectionNumber="6"
-                visibleSections={visibleSections}
-                delay={0}
-              >
-                함께 시작해보아요
-              </ScrollTitle>
-              <ScrollDescription
-                sectionNumber="6"
-                visibleSections={visibleSections}
-                delay={200}
-              >
-                bandi와 함께 글쓰기 여정을
-                <br />
-                지금 바로 시작해보세요.
-              </ScrollDescription>
-            </div>
+            {/* 세 번째 카드 */}
+            <ScrollElement
+              sectionNumber="6"
+              visibleSections={visibleSections}
+              delay={300}
+              className="w-full max-w-lg flex-shrink-0 transition-all duration-500"
+            >
+              <div className="flex flex-col items-center">
+                <div className="postcard p-8 bg-gray-50 rounded-lg shadow-sm mb-8 max-w-md">
+                  논점에 불리십시오 후다 전복시킨다 왕성하라 이 우리다 보다. 가공은
+                  방한한다 또, 찻잔께서 4명 수 과거는 방문한 말한 쓰이어. 가는 자주
+                  부침이 젊어 확신한다.
+                </div>
+                <div className="text-center max-w-sm">
+                  <ScrollTitle
+                    sectionNumber="6"
+                    visibleSections={visibleSections}
+                    delay={400}
+                  >
+                    함께 시작해보아요
+                  </ScrollTitle>
+                  <ScrollDescription
+                    sectionNumber="6"
+                    visibleSections={visibleSections}
+                    delay={500}
+                  >
+                    bandi와 함께 글쓰기 여정을 
+                    <br />지금 바로 시작해보세요.
+                  </ScrollDescription>
+                </div>
+              </div>
+            </ScrollElement>
           </div>
         </div>
       </div>

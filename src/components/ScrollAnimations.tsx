@@ -6,6 +6,7 @@ interface ScrollElementProps {
   visibleSections: Set<string>;
   delay?: number;
   className?: string;
+  style?: CSSProperties;
 }
 
 export const ScrollElement: React.FC<ScrollElementProps> = ({
@@ -14,19 +15,22 @@ export const ScrollElement: React.FC<ScrollElementProps> = ({
   visibleSections,
   delay = 0,
   className = '',
+  style = {},
 }) => {
   const isVisible = visibleSections.has(sectionNumber);
+  const isMiddleSection = sectionNumber === "5";
 
-  const style: CSSProperties = {
+  const combinedStyle: CSSProperties = {
     transitionDelay: isVisible ? `${delay}ms` : '0ms',
+    ...style
   };
 
   return (
     <div
       className={`transition-all duration-700 ease-out ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        isMiddleSection ? '' : isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       } ${className}`}
-      style={style}
+      style={combinedStyle}
     >
       {children}
     </div>

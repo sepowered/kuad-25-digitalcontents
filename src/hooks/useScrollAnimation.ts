@@ -10,9 +10,11 @@ export const useScrollAnimation = (): ScrollAnimationReturn => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set(['1']));
   const [horizontalScrollPosition, setHorizontalScrollPosition] = useState(0);
+  const [isSection4Visible, setIsSection4Visible] = useState(false);
   
   const viewportWidth = useRef(0);
   const viewportHeight = useRef(0);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   // 뷰포트 크기 계산
   useEffect(() => {
@@ -26,10 +28,43 @@ export const useScrollAnimation = (): ScrollAnimationReturn => {
     return () => window.removeEventListener('resize', updateViewportSize);
   }, []);
 
+  // Intersection Observer 설정
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target.classList.contains('section-4')) {
+            setIsSection4Visible(entry.isIntersecting);
+          }
+        });
+      },
+      {
+        threshold: [0.2, 0.8],
+        rootMargin: '-20% 0px'
+      }
+    );
+
+    const section4 = document.querySelector('.section-4');
+    if (section4 && observerRef.current) {
+      observerRef.current.observe(section4);
+    }
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
+
   // 일반적인 섹션 가시성 확인
   const checkSectionVisibility = useCallback(() => {
-    const sections = ['1', '2', '3', '4', '5', '6', '7', '8'];
+    const sections = ['1', '2', '3', '5', '6', '7', '8']; // section-4 제외
     const newVisible = new Set<string>();
+    
+    // section-4는 Intersection Observer로 처리
+    if (isSection4Visible) {
+      newVisible.add('4');
+    }
     
     sections.forEach(sectionNum => {
       const element = document.querySelector(`.section-${sectionNum}`);
@@ -43,7 +78,7 @@ export const useScrollAnimation = (): ScrollAnimationReturn => {
     });
 
     return newVisible;
-  }, []);
+  }, [isSection4Visible]);
 
   // 가로 스크롤 진행도 계산
   const calculateHorizontalProgress = useCallback((scrollY: number): number => {
