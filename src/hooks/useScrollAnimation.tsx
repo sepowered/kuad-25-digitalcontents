@@ -59,22 +59,30 @@ export const useScrollAnimation = ({
     return newVisible;
   }, []);
 
-  // 가로 스크롤 진행도 계산 (하드코딩 방식)
+  // 가로 스크롤 진행도 계산 (섹션 상단이 화면 맨 위에 닿을 때 시작)
   const calculateHorizontalProgress = useCallback((scrollY: number): number => {
-    // 🎯 전체 페이지 스크롤 진행도 기준으로 계산
-    const totalDocumentHeight =
-      document.documentElement.scrollHeight - window.innerHeight;
-    const pageProgress = scrollY / totalDocumentHeight;
+    const wrapper = document.querySelector('.horizontal-sections-wrapper');
+    if (!wrapper) return 0;
 
-    // 페이지 진행도 40%부터 가로 스크롤 시작 (더 늦춤)
-    const HORIZONTAL_START = 2; // 32.9% → 40%로 늦춤
-    const HORIZONTAL_DURATION = 1; // 15% 구간 동안 가로 스크롤
-    const HORIZONTAL_END = HORIZONTAL_START + HORIZONTAL_DURATION;
+    // 섹션 4의 상단 위치 (wrapper의 시작점)
+    const section4Top = wrapper.getBoundingClientRect().top + window.scrollY;
 
-    if (pageProgress < HORIZONTAL_START) return 0;
-    if (pageProgress >= HORIZONTAL_END) return 1;
+    // 🎯 핵심: 섹션 4의 상단이 화면 맨 위에 닿는 지점
+    const horizontalStartPoint = section4Top;
 
-    return (pageProgress - HORIZONTAL_START) / HORIZONTAL_DURATION;
+    // wrapper의 총 높이를 이용해 끝점 계산
+    const wrapperHeight = wrapper.clientHeight;
+    const viewportHeight = window.innerHeight;
+    const horizontalEndPoint = section4Top + wrapperHeight - viewportHeight;
+
+    // 진행도 계산
+    if (scrollY < horizontalStartPoint) return 0;
+    if (scrollY >= horizontalEndPoint) return 1;
+
+    const scrollRange = horizontalEndPoint - horizontalStartPoint;
+    if (scrollRange <= 0) return 0;
+
+    return (scrollY - horizontalStartPoint) / scrollRange;
   }, []);
 
   // 섹션 가시성 업데이트 (더 엄격하게)

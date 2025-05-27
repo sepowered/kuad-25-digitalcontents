@@ -8,14 +8,8 @@ import {
 import BandiLogo from './BandiLogo';
 
 const BandiApp: React.FC = () => {
-  const { scrollProgress, visibleSections, horizontalScrollPosition } = useScrollAnimation();
-
-  // 디버깅용 - 현재 상태 확인
-  console.log('BandiApp 렌더링:', {
-    scrollProgress,
-    visibleSections: Array.from(visibleSections),
-    horizontalScrollPosition
-  });
+  const { scrollProgress, visibleSections, horizontalScrollPosition } =
+    useScrollAnimation();
 
   return (
     <div className="font-sans">
@@ -116,7 +110,7 @@ const BandiApp: React.FC = () => {
           >
             여러 연구결과에 따르면 그렇다 해요.
           </ScrollDescription>
-          <div className="postcards grid grid-cols-3 gap-4 mt-12">
+          <div className="postcards flex flex-col md:grid md:grid-cols-3 gap-4 mt-12">
             <ScrollElement
               sectionNumber="3"
               visibleSections={visibleSections}
@@ -124,13 +118,13 @@ const BandiApp: React.FC = () => {
               className="w-full"
             >
               <div className="postcard p-8 bg-gray-50 rounded-lg shadow-sm w-full">
-                논점에 불리십시오 후다 전복시킨다 왕성하라 이 우리다 보다. 가공은
-                방한한다 또, 찻잔께서 4명 수 과거는 방문한 말한 쓰이어. 가는 자주
-                부침이 젊어 확신한다. 비중에 만약으로, 한 얘기하지만 시킨다. 그
-                그럴 같다 지적되어요 쪽 같다. 있도록 여자는 방위는 문예의 어른을,
-                이 모른 있은가. 말에서 무엇이 점은 요구를 하는 돌아감, 바람
-                방치하도록 안정시킵니다. 아니다 이 개체의 보다 정돈성이 정말,
-                눈치와 종살이의 그러나 맡기어 집어넣으네.
+                논점에 불리십시오 후다 전복시킨다 왕성하라 이 우리다 보다.
+                가공은 방한한다 또, 찻잔께서 4명 수 과거는 방문한 말한 쓰이어.
+                가는 자주 부침이 젊어 확신한다. 비중에 만약으로, 한 얘기하지만
+                시킨다. 그 그럴 같다 지적되어요 쪽 같다. 있도록 여자는 방위는
+                문예의 어른을, 이 모른 있은가. 말에서 무엇이 점은 요구를 하는
+                돌아감, 바람 방치하도록 안정시킵니다. 아니다 이 개체의 보다
+                정돈성이 정말, 눈치와 종살이의 그러나 맡기어 집어넣으네.
               </div>
             </ScrollElement>
             <ScrollElement
@@ -140,13 +134,13 @@ const BandiApp: React.FC = () => {
               className="w-full"
             >
               <div className="postcard p-8 bg-gray-50 rounded-lg shadow-sm w-full">
-                논점에 불리십시오 후다 전복시킨다 왕성하라 이 우리다 보다. 가공은
-                방한한다 또, 찻잔께서 4명 수 과거는 방문한 말한 쓰이어. 가는 자주
-                부침이 젊어 확신한다. 비중에 만약으로, 한 얘기하지만 시킨다. 그
-                그럴 같다 지적되어요 쪽 같다. 있도록 여자는 방위는 문예의 어른을,
-                이 모른 있은가. 말에서 무엇이 점은 요구를 하는 돌아감, 바람
-                방치하도록 안정시킵니다. 아니다 이 개체의 보다 정돈성이 정말,
-                눈치와 종살이의 그러나 맡기어 집어넣으네.
+                논점에 불리십시오 후다 전복시킨다 왕성하라 이 우리다 보다.
+                가공은 방한한다 또, 찻잔께서 4명 수 과거는 방문한 말한 쓰이어.
+                가는 자주 부침이 젊어 확신한다. 비중에 만약으로, 한 얘기하지만
+                시킨다. 그 그럴 같다 지적되어요 쪽 같다. 있도록 여자는 방위는
+                문예의 어른을, 이 모른 있은가. 말에서 무엇이 점은 요구를 하는
+                돌아감, 바람 방치하도록 안정시킵니다. 아니다 이 개체의 보다
+                정돈성이 정말, 눈치와 종살이의 그러나 맡기어 집어넣으네.
               </div>
             </ScrollElement>
             <ScrollElement
@@ -156,13 +150,13 @@ const BandiApp: React.FC = () => {
               className="w-full"
             >
               <div className="postcard p-8 bg-gray-50 rounded-lg shadow-sm w-full">
-                논점에 불리십시오 후다 전복시킨다 왕성하라 이 우리다 보다. 가공은
-                방한한다 또, 찻잔께서 4명 수 과거는 방문한 말한 쓰이어. 가는 자주
-                부침이 젊어 확신한다. 비중에 만약으로, 한 얘기하지만 시킨다. 그
-                그럴 같다 지적되어요 쪽 같다. 있도록 여자는 방위는 문예의 어른을,
-                이 모른 있은가. 말에서 무엇이 점은 요구를 하는 돌아감, 바람
-                방치하도록 안정시킵니다. 아니다 이 개체의 보다 정돈성이 정말,
-                눈치와 종살이의 그러나 맡기어 집어넣으네.
+                논점에 불리십시오 후다 전복시킨다 왕성하라 이 우리다 보다.
+                가공은 방한한다 또, 찻잔께서 4명 수 과거는 방문한 말한 쓰이어.
+                가는 자주 부침이 젊어 확신한다. 비중에 만약으로, 한 얘기하지만
+                시킨다. 그 그럴 같다 지적되어요 쪽 같다. 있도록 여자는 방위는
+                문예의 어른을, 이 모른 있은가. 말에서 무엇이 점은 요구를 하는
+                돌아감, 바람 방치하도록 안정시킵니다. 아니다 이 개체의 보다
+                정돈성이 정말, 눈치와 종살이의 그러나 맡기어 집어넣으네.
               </div>
             </ScrollElement>
           </div>
@@ -171,16 +165,15 @@ const BandiApp: React.FC = () => {
 
       {/* 가로 스크롤 섹션 4-6 */}
       <div className="horizontal-sections-wrapper relative h-[400vh]">
-        <div 
+        <div
           className="horizontal-scroll-container sticky top-0 flex h-screen overflow-hidden"
-          style={{ 
+          style={{
             transform: `translateX(${horizontalScrollPosition}px)`,
-            // 🔍 디버깅용 배경색
-            background: 'rgba(255,0,0,0.1)'
+            width: '300vw',
           }}
         >
           {/* 섹션 4 */}
-          <div className="section-4 min-h-screen min-w-full flex-shrink-0 flex items-center px-8 bg-blue-200">
+          <div className="section-4 min-h-screen w-screen flex-shrink-0 flex items-center px-8">
             <div className="main max-w-4xl mx-auto text-center">
               <ScrollTitle
                 sectionNumber="4"
@@ -202,7 +195,7 @@ const BandiApp: React.FC = () => {
           </div>
 
           {/* 섹션 5 */}
-          <div className="section-5 min-h-screen min-w-full flex-shrink-0 flex items-center px-8 bg-green-200">
+          <div className="section-5 min-h-screen w-screen flex-shrink-0 flex items-center px-8">
             <div className="main max-w-4xl mx-auto text-center">
               <ScrollTitle
                 sectionNumber="5"
@@ -217,14 +210,13 @@ const BandiApp: React.FC = () => {
                 delay={200}
               >
                 복잡한 생각들을 글로 정리하면
-                <br />
-                더 명확하게 이해할 수 있게 됩니다.
+                <br />더 명확하게 이해할 수 있게 됩니다.
               </ScrollDescription>
             </div>
           </div>
 
           {/* 섹션 6 */}
-          <div className="section-6 min-h-screen min-w-full flex-shrink-0 flex items-center px-8 bg-yellow-200">
+          <div className="section-6 min-h-screen w-screen flex-shrink-0 flex items-center px-8">
             <div className="main max-w-4xl mx-auto text-center">
               <ScrollTitle
                 sectionNumber="6"
@@ -238,7 +230,7 @@ const BandiApp: React.FC = () => {
                 visibleSections={visibleSections}
                 delay={200}
               >
-                bandi와 함께 글쓰기 여정을 
+                bandi와 함께 글쓰기 여정을
                 <br />
                 지금 바로 시작해보세요.
               </ScrollDescription>
@@ -269,7 +261,7 @@ const BandiApp: React.FC = () => {
         </div>
       </div>
 
-      {/* 추가 섹션 8 (Call to Action) */}
+      {/* 섹션 8 */}
       <div className="section-8 min-h-screen flex items-center px-8 bg-gray-50">
         <div className="main max-w-4xl mx-auto text-center">
           <ScrollTitle
